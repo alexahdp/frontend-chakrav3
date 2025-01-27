@@ -51,7 +51,7 @@ const MyTestsItem = ({
                        edited = "",
                        published = false,
                      }) => (
-    <Link href="/test-edit/" passHref>
+    // <Link href="/test-edit/" passHref>
       <ContentItem {...styles.contentItem}>
         <Flex gap={2}>
           <Text {...styles.title}>{title}</Text>
@@ -88,7 +88,7 @@ const MyTestsItem = ({
           {edited && <Text {...styles.description.edited}>Edited {edited}</Text>}
         </Flex>
       </ContentItem>
-    </Link>
+    // </Link>
 )
 
 export default MyTestsItem;

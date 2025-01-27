@@ -3,7 +3,7 @@ import SideBar from "@/components/layout/SideBar";
 import {Header, HeaderTitle} from "@/components/layout/Header";
 
 import Body from "@/components/layout/Body";
-import MainMenu from "@/features/MainMenu";
+import {MainMenu} from "@/features/MainMenu";
 
 export default function Page() {
 

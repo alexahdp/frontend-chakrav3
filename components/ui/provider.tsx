@@ -9,11 +9,14 @@ import {
   type ColorModeProviderProps,
 } from "./color-mode"
 import system from "@/components/theme";
+import { MenuProvider } from "../providers/menuProvider";
 
 export function Provider(props: ColorModeProviderProps) {
   return (
     <ChakraProvider value={system}>
-      <ColorModeProvider {...props} />
+      <MenuProvider>
+        <ColorModeProvider {...props} />
+      </MenuProvider>
     </ChakraProvider>
   )
 }

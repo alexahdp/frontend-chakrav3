@@ -9,6 +9,7 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer"
 import {MenuIcon} from "lucide-react";
+import { useMenuContext } from "../providers/menuProvider";
 
 const styles = {
   desktopSidebar: {
@@ -30,13 +31,13 @@ const SideBar = ({
                  }: {
   children?: ReactNode;
 } & FlexProps)  => {
-  const [openDrawer, setOpen] = useState(false)
+  const { isOpen, setIsOpen } = useMenuContext();
   return (
       <>
         <Flex as="nav" {...styles.desktopSidebar} {...props}>
           {children}
         </Flex>
-        <DrawerRoot placement="start">
+        <DrawerRoot placement="start" open={isOpen}>
           <DrawerBackdrop/>
           <DrawerTrigger asChild>
             <IconButton hideFrom="lg" position="absolute" top={3.5} left={3} variant="ghost" size="md">
@@ -44,7 +45,7 @@ const SideBar = ({
             </IconButton>
           </DrawerTrigger>
           <DrawerContent width="300px">
-            <DrawerCloseTrigger/>
+            <DrawerCloseTrigger onClick={() => setIsOpen(false)}/>
             <DrawerBody display="flex" flexDirection="column" padding={0} flexGrow={1}
                         height="100vh"> {children} </DrawerBody>
           </DrawerContent>

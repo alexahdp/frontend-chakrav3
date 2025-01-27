@@ -13,11 +13,12 @@ import Content from "@/components/layout/Content";
 import ContentList from "@/components/layout/ContentList";
 import { MainMenu } from "@/features/MainMenu";
 import MyTestsItem from "@/features/MyTestsItem";
+import { useMenuContext } from "@/components/providers/menuProvider";
 
 export default function Page() {
-
   const [activeTab, setActiveTab] = useState<string | null>("all")
   const [sort, setValue] = useState("edit")
+  const {isOpen, setIsOpen} = useMenuContext();
 
   return (
       <AppLayout>
@@ -27,7 +28,7 @@ export default function Page() {
         <Body>
           <Header>
             <HeaderTitle title="My tests">
-              <IconButton hideFrom="lg" position="absolute" top={3.5} left={3} variant="ghost" size="md">
+              <IconButton  variant="ghost" size="md" onClick={() => setIsOpen(!isOpen)}>
                 <MenuIcon/>
               </IconButton>
               {/*<PageHeading></PageHeading>*/}
