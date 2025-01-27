@@ -36,6 +36,8 @@ export default function Page() {
               <Button colorPalette={"purple"}>Create test<PlusIcon/></Button>
             </HeaderTitle>
             <HeaderNav>
+
+              {/* TabsPanel */}
               <Tabs.Root value={activeTab} onValueChange={(e) => setActiveTab(e.value)}>
                 <Tabs.List border={0}>
                   <Tabs.Trigger value="all">All</Tabs.Trigger>
@@ -43,6 +45,8 @@ export default function Page() {
                   <Tabs.Trigger value="draft">Drafts</Tabs.Trigger>
                 </Tabs.List>
               </Tabs.Root>
+              
+              {/* SortingBy */}
               <MenuRoot>
                 <MenuTrigger asChild>
                   <Flex alignItems="center" gap={2} fontSize="sm" paddingRight={4} color="fg.muted">
@@ -59,8 +63,10 @@ export default function Page() {
                   </MenuRadioItemGroup>
                 </MenuContent>
               </MenuRoot>
+
             </HeaderNav>
           </Header>
+
           <Content>
             <Tabs.Root value={activeTab} onValueChange={(e) => setActiveTab(e.value)}>
               <Tabs.Content value="all">
