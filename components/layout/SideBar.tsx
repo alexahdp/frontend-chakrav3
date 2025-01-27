@@ -1,4 +1,5 @@
-import {Flex, IconButton} from "@chakra-ui/react";
+import {type ReactNode, useState} from "react";
+import {Flex, FlexProps, IconButton} from "@chakra-ui/react";
 import {
   DrawerBackdrop,
   DrawerBody,
@@ -7,35 +8,39 @@ import {
   DrawerRoot,
   DrawerTrigger,
 } from "@/components/ui/drawer"
-import {useState} from "react";
 import {MenuIcon} from "lucide-react";
 
 const styles = {
-  width: "300px",
-  height: "100vh",
-  flexDirection: "column",
-  bg: "bg.subtle",
-  color: "fg.muted",
-  borderRight: "1px solid",
-  borderColor: "border",
+  desktopSidebar: {
+    hideBelow: "lg", // hide below lg breakpoint
+    width: "300px",
+    height: "100vh",
+    flexDirection: "column",
+    bg: "bg.subtle",
+    color: "fg.muted",
+    borderRight: "1px solid",
+    borderColor: "border",
+  }
 };
 
 // Left sidebar – wrapper around menu on the left side
 const SideBar = ({
                    children,
                    ...props
-                 }) => {
+                 }: {
+  children?: ReactNode;
+} & FlexProps)  => {
   const [openDrawer, setOpen] = useState(false)
   return (
       <>
-        <Flex as="nav" hideBelow="lg" {...styles} {...props}>
+        <Flex as="nav" {...styles.desktopSidebar} {...props}>
           {children}
         </Flex>
-        <DrawerRoot placement={"start"}>
+        <DrawerRoot placement="start">
           <DrawerBackdrop/>
           <DrawerTrigger asChild>
             <IconButton hideFrom="lg" position="absolute" top={3.5} left={3} variant="ghost" size="md">
-             <MenuIcon/>
+              <MenuIcon/>
             </IconButton>
           </DrawerTrigger>
           <DrawerContent width="300px">
@@ -47,6 +52,5 @@ const SideBar = ({
       </>
   )
 };
-
 
 export default SideBar;

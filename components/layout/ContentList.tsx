@@ -1,4 +1,5 @@
-import {Center, Stack} from "@chakra-ui/react";
+import type {ReactNode} from "react";
+import {Center, Stack, StackProps} from "@chakra-ui/react";
 
 const styles = {
   gap: 4,
@@ -11,12 +12,15 @@ const styles = {
 const ContentList = ({
                        children,
                        ...props
-                     }) => (
+                     }: {
+  children?: ReactNode;
+} & StackProps) => (
     <Center>
       <Stack {...styles} {...props}>
         {children}
       </Stack>
     </Center>
 );
+
 
 export default ContentList;

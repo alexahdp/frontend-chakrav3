@@ -1,17 +1,16 @@
-import type {ReactNode} from "react";
+import type {ReactNode} from 'react';
 import {Flex, FlexProps} from "@chakra-ui/react";
 
 const styles = {
   height: "dvh",
-  direction: "column",
-  flexGrow: 1,
+  width: "full",
 };
 
 // Main wrapper – place Header and Content inside
-const Body = ({
-                children,
-                ...props
-              }: {
+const AppLayout = ({
+                     children,
+                     ...props
+                   }: {
   children?: ReactNode;
 } & FlexProps) => (
     <Flex {...styles} {...props}>
@@ -19,4 +18,4 @@ const Body = ({
     </Flex>
 );
 
-export default Body;
+export default AppLayout;

@@ -1,20 +1,23 @@
 import { Button, Center, HStack, Flex } from "@chakra-ui/react"
 import {ColorModeToggle} from "@/components/color-mode-toggle";
-import Sidebar from "../features/MainMenu";
+import AppLayout from "@/components/layout/AppLayout";
+import NavItem from "@/components/ui/nav-item";
+import Link from "next/link";
+import {FilePenLineIcon} from "lucide-react";
 
 export default function Page() {
   return (
-      <Flex>
-          <Sidebar/>
-          <Center flexDir="column" gap="8" minH="dvh" flexGrow="1">
+      <AppLayout>
+          <Center flexDirection="column" gap="8" minHeight="dvh" flexGrow="1">
               <HStack>
+                <Button asChild>
+                  <Link href="/my-tests">Login</Link>
+                </Button>
+                <HStack>
                   <ColorModeToggle/>
-              </HStack>
-              <HStack>
-                  <Button>Click me</Button>
-                  <Button>Click me</Button>
+                </HStack>
               </HStack>
           </Center>
-      </Flex>
+      </AppLayout>
   )
 }

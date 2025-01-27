@@ -1,5 +1,5 @@
-import React from "react";
-import {Box, Flex, Heading} from "@chakra-ui/react";
+import React, {type ReactNode} from "react";
+import {Box, BoxProps, Flex, FlexProps, Heading,} from "@chakra-ui/react";
 
 const styles = {
   header: {
@@ -7,7 +7,7 @@ const styles = {
     borderBottom: "1px solid",
     borderColor: "border",
   },
-  title: {
+  headerTitle: {
     paddingY: "3",
     paddingLeft: "6",
     paddingRight: "3",
@@ -36,30 +36,40 @@ const styles = {
 };
 
 // Main header wrapper that placed on inside the Body
-export const Header: React.FC<{ children: React.ReactNode }> = ({children, ...props}) => {
-  return (
-      <Box as="header" {...styles.header} {...props}>
-        {children}
-      </Box>
-  );
-};
+export const Header = ({
+                         children,
+                         ...props
+                       }: {
+  children?: ReactNode;
+} & BoxProps) => (
+    <Box as="header" {...styles.header} {...props}>
+      {children}
+    </Box>
+);
 
 // Header bar with large title
-export const HeaderTitle: React.FC<{ children: React.ReactNode, title?: string }> = ({children, title, ...props}) => {
-  return (
-      <Flex {...styles.title} {...props}>
-        {title && <Heading {...styles.heading}>{title}</Heading>}
-        {children}
-      </Flex>
-  );
-};
+export const HeaderTitle = ({
+                              children,
+                              title,
+                              ...props
+                            }: {
+  children?: ReactNode;
+  title?: string;
+} & FlexProps) => (
+    <Flex {...styles.headerTitle} {...props}>
+      {title && <Heading {...styles.heading}>{title}</Heading>}
+      {children}
+    </Flex>
+);
 
 // Header bar with service links
-export const HeaderNav: React.FC<{ children: React.ReactNode }> = ({children, ...props}) => {
-  return (
-      <Flex {...styles.nav} {...props}>
-        {children}
-      </Flex>
-  );
-};
-
+export const HeaderNav = ({
+                            children,
+                            ...props
+                          }: {
+  children?: ReactNode;
+} & FlexProps) => (
+    <Flex {...styles.nav} {...props}>
+      {children}
+    </Flex>
+);

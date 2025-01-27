@@ -6,7 +6,7 @@ import Logo from "./Logo";
 import ProfileMenu from "./ProfileMenu";
 import styles from "./styles";
 
-const Sidebar = () => {
+export const MainMenu = () => {
   return (
       <>
         <Flex {...styles.logoWrap}>
@@ -17,9 +17,11 @@ const Sidebar = () => {
         <Stack {...styles.panelWrap}>
           <Stack {...styles.menuWrap}>
               <NavItem selected asChild>
-                <Link href="/test-edit/id"><FilePenLineIcon/>My tests</Link>
+                <Link href="/my-tests"><FilePenLineIcon/>My tests</Link>
               </NavItem>
-            <NavItem><ListTodoIcon/>Results</NavItem>
+            <NavItem asChild>
+              <Link href="/my-tests"> <ListTodoIcon/>Results</Link>
+            </NavItem>
             <Separator variant="solid" {...styles.separator} />
             <NavItem><MessageCircleQuestionIcon/>Tests catalog</NavItem>
           </Stack>
@@ -35,5 +37,3 @@ const Sidebar = () => {
       </>
   );
 };
-
-export default Sidebar;

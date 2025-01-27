@@ -21,9 +21,7 @@ const ProfileMenu = () => {
 
   const [lang, setValueLang] = useState("en")
   const [mounted, setMounted] = useState(false)
-
-  // can this be "let"?
-  let {theme, setTheme} = useTheme()
+  const {theme, setTheme} = useTheme()
 
   // useEffect only runs on the client, so now we can safely show the UI
   // to prevent hydration warning
@@ -36,10 +34,10 @@ const ProfileMenu = () => {
   }
 
   const setLight = () => {
-    setTheme(theme = "light")
+    setTheme("light")
   }
   const setDark = () => {
-    setTheme(theme = "dark")
+    setTheme("dark")
   }
 
   return (

@@ -1,4 +1,5 @@
-import {Button} from "@chakra-ui/react"
+import {Button, ButtonProps} from "@/components/ui/button"
+import {ReactNode} from "react";
 
 const styles = {
   box: {
@@ -27,13 +28,20 @@ const styles = {
   },
 };
 
+interface NavItemProps extends ButtonProps {
+  children: ReactNode
+  href?: string
+  selected?: boolean
+  size?: 'sm' | 'md'
+}
+
 const NavItem = ({
                    children,
                    href = "",
                    selected = false,
                    size = "md",
                    ...props
-                 }) => (
+                 }: NavItemProps) => (
     <Button
         variant="ghost"
         className={`

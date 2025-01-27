@@ -1,8 +1,5 @@
-import {Box, Flex, IconButton, Text} from "@chakra-ui/react";
-import {Tooltip} from "@/components/ui/tooltip";
-import Link from "next/link";
-import {EllipsisIcon, PencilIcon, TrashIcon} from "lucide-react";
-import {MenuContent, MenuItem, MenuRoot, MenuTrigger} from "@/components/ui/menu";
+import type {ReactNode} from "react";
+import {Box, BoxProps} from "@chakra-ui/react";
 
 const styles = {
   item: {
@@ -34,11 +31,9 @@ const styles = {
 };
 
 // Left sidebar – wrapper around menu on the left side
-const ContentItem = ({
-                       children,
-                       ...props
-                     }) => (
-
+const ContentItem = ({children}: { children?: ReactNode },
+                     {props}: { props?: BoxProps },
+) => (
     <Box {...styles.item} {...props}>
       {children}
     </Box>
