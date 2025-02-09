@@ -1,6 +1,6 @@
-const styles = {
+export const styles = {
   logoWrap: {
-    paddingTop: "6",
+    paddingTop: "5",
     paddingLeft: "5",
     paddingBottom: "3",
     paddingRight: "4",
@@ -27,5 +27,3 @@ const styles = {
     marginY: "2.5",
   },
 };
-
-export default styles;

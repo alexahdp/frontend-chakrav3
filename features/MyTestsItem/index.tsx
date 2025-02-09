@@ -2,7 +2,7 @@ import Link from "next/link";
 import {Flex, IconButton, Text} from "@chakra-ui/react";
 import {EllipsisIcon, PencilIcon, RadioIcon, TrashIcon} from "lucide-react";
 import {Tag} from "@/components/ui/tag";
-import ContentItem from "@/components/ui/content-item";
+import { ContentItem } from "@/components/ui/content-item";
 import {Tooltip} from "@/components/ui/tooltip";
 import {MenuContent, MenuItem, MenuRoot, MenuTrigger} from "@/components/ui/menu";
 
@@ -44,7 +44,7 @@ const styles = {
   }
 };
 
-const MyTestsItem = ({
+export const MyTestsItem = ({
                        title = "",
                        questions = {},
                        results = {},
@@ -90,5 +90,3 @@ const MyTestsItem = ({
       </ContentItem>
     // </Link>
 )
-
-export default MyTestsItem;

@@ -9,7 +9,7 @@ const styles = {
 };
 
 // Main template for the List of content items
-const ContentList = ({
+export const ContentList = ({
                        children,
                        ...props
                      }: {
@@ -21,6 +21,3 @@ const ContentList = ({
       </Stack>
     </Center>
 );
-
-
-export default ContentList;

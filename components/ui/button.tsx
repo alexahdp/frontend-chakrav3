@@ -1,5 +1,3 @@
-// this component was customized
-
 import type { ButtonProps as ChakraButtonProps } from "@chakra-ui/react"
 import {
   AbsoluteCenter,
@@ -20,7 +18,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(props, ref) {
     const { loading, disabled, loadingText, children, ...rest } = props
     return (
-      <ChakraButton borderRadius="md" disabled={loading || disabled} ref={ref} {...rest}>
+      <ChakraButton disabled={loading || disabled} ref={ref} {...rest}>
         {loading && !loadingText ? (
           <>
             <AbsoluteCenter display="inline-flex">

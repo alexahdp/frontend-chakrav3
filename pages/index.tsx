@@ -1,9 +1,7 @@
-import { Button, Center, HStack, Flex } from "@chakra-ui/react"
+import { Button, Center, HStack } from "@chakra-ui/react"
 import {ColorModeToggle} from "@/components/color-mode-toggle";
-import AppLayout from "@/components/layout/AppLayout";
-import NavItem from "@/components/ui/nav-item";
+import { AppLayout } from "@/components/layout/AppLayout";
 import Link from "next/link";
-import {FilePenLineIcon} from "lucide-react";
 
 export default function Page() {
   return (

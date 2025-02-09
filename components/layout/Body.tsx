@@ -7,8 +7,8 @@ const styles = {
   flexGrow: 1,
 };
 
-// Main wrapper – place Header and Content inside
-const Body = ({
+// Main page part wrapper – place Header and Content inside
+export const Body = ({
                 children,
                 ...props
               }: {
@@ -18,5 +18,3 @@ const Body = ({
       {children}
     </Flex>
 );
-
-export default Body;

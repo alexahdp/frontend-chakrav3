@@ -8,13 +8,13 @@ const styles = {
   overflowY: "auto",
   padding: "3", // 1 = 0.25rem,  1rem = 16px, 16 * 3 * 0.25 = 12
   paddingTop: "0",
-  lg: {
+  md: {
     padding: "4",
   }
 };
 
 // Scrollable area under the header
-const Content = ({
+export const Content = ({
                    children,
                    ...props
                  }: {
@@ -24,5 +24,3 @@ const Content = ({
       {children}
     </Flex>
 );
-
-export default Content;

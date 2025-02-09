@@ -1,5 +1,5 @@
 import React, {type ReactNode} from "react";
-import {Box, BoxProps, Flex, FlexProps, Heading,} from "@chakra-ui/react";
+import {Box, BoxProps, Flex, FlexProps} from "@chakra-ui/react";
 
 const styles = {
   header: {
@@ -9,26 +9,25 @@ const styles = {
   },
   headerTitle: {
     paddingY: "3",
-    paddingLeft: "6",
+    paddingLeft: "3",
     paddingRight: "3",
-    gap: "4",
-    lg: {
+    gap: "3",
+    md: { // start from md breakpoint
+      gap: "4",
       paddingY: "4",
       paddingLeft: "6",
       paddingRight: "4",
-    }
+    },
+    "& h2": {
+      flexGrow: 1,
+      fontSize: "xl",
+      fontWeight: "semibold",
+      md: { // start from md breakpoint
+        fontSize: "3xl",
+      }
+    },
   },
-  heading: {
-    flexGrow: 1,
-    fontSize: "xl",
-    fontWeight: "semibold",
-    paddingLeft: 8,
-    md: {
-      fontSize: "3xl",
-      paddingLeft: 0,
-    }
-  },
-  nav: {
+  headerNav: {
     paddingLeft: "6",
     gap: "4",
     justifyContent: "space-between",
@@ -50,14 +49,11 @@ export const Header = ({
 // Header bar with large title
 export const HeaderTitle = ({
                               children,
-                              title,
                               ...props
                             }: {
   children?: ReactNode;
-  title?: string;
 } & FlexProps) => (
     <Flex {...styles.headerTitle} {...props}>
-      {title && <Heading {...styles.heading}>{title}</Heading>}
       {children}
     </Flex>
 );
@@ -69,7 +65,7 @@ export const HeaderNav = ({
                           }: {
   children?: ReactNode;
 } & FlexProps) => (
-    <Flex {...styles.nav} {...props}>
+    <Flex {...styles.headerNav} {...props}>
       {children}
     </Flex>
 );

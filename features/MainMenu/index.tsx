@@ -1,10 +1,10 @@
 import Link from "next/link";
 import {Box, Flex, Separator, Stack} from "@chakra-ui/react";
-import NavItem from "@/components/ui/nav-item";
+import { NavItem } from "@/components/ui/nav-item";
 import {FilePenLineIcon, LifeBuoyIcon, ListTodoIcon, MessageCircleQuestionIcon, SendIcon} from "lucide-react";
-import Logo from "./Logo";
-import ProfileMenu from "./ProfileMenu";
-import styles from "./styles";
+import {Logo} from "./Logo";
+import {ProfileMenu} from "./ProfileMenu";
+import {styles} from "./styles";
 
 export const MainMenu = () => {
   return (

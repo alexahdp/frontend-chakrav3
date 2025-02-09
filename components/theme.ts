@@ -1,11 +1,28 @@
-import {createSystem, defaultConfig} from "@chakra-ui/react"
+import {createSystem, defaultConfig, defineRecipe} from "@chakra-ui/react"
 
-const system = createSystem(defaultConfig, {
+
+const buttonRecipe = defineRecipe({
+  base: {
+    borderRadius: "md",
+  },
+  variants: {
+    size: {
+      md: {
+        // borderRadius: "lg",
+      },
+    },
+  },
+})
+
+export const system = createSystem(defaultConfig, {
   theme: {
+    recipes: {
+      button: buttonRecipe,
+    },
     tokens: {
       fonts: {
         heading: {value: "var(--font-literata)",},
-        body: {},
+        body:{value: "var(--font-geist)",},
       },
       fontWeights: {}
     },
@@ -35,5 +52,3 @@ const system = createSystem(defaultConfig, {
     },
   },
 });
-
-export default system

@@ -6,8 +6,8 @@ const styles = {
   width: "full",
 };
 
-// Main wrapper – place Header and Content inside
-const AppLayout = ({
+// App-level wrapper – place Sidebar and Body inside
+export const AppLayout = ({
                      children,
                      ...props
                    }: {
@@ -17,5 +17,3 @@ const AppLayout = ({
       {children}
     </Flex>
 );
-
-export default AppLayout;

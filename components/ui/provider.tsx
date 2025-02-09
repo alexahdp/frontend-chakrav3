@@ -1,5 +1,4 @@
 // this component was customized
-// there is theme, global styles and other common styles
 
 "use client"
 
@@ -8,7 +7,7 @@ import {
   ColorModeProvider,
   type ColorModeProviderProps,
 } from "./color-mode"
-import system from "@/components/theme";
+import { system } from "@/components/theme";
 import { MenuProvider } from "../providers/menuProvider";
 
 export function Provider(props: ColorModeProviderProps) {

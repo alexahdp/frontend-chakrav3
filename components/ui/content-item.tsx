@@ -31,12 +31,10 @@ const styles = {
 };
 
 // Left sidebar – wrapper around menu on the left side
-const ContentItem = ({children}: { children?: ReactNode },
+export const ContentItem = ({children}: { children?: ReactNode },
                      {props}: { props?: BoxProps },
 ) => (
     <Box {...styles.item} {...props}>
       {children}
     </Box>
 );
-
-export default ContentItem;

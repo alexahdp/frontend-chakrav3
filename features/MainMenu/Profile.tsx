@@ -20,7 +20,7 @@ const styles = {
   },
 };
 
-const Profile = ({...props}) => {
+export const Profile = ({...props}) => {
   return (
       <HStack {...styles.box} {...props}>
         <Avatar size="xs" name="Phillip Schleifer" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04"
@@ -34,5 +34,3 @@ const Profile = ({...props}) => {
       </HStack>
   );
 };
-
-export default Profile;

@@ -1,8 +1,8 @@
-import AppLayout from "@/components/layout/AppLayout";
-import SideBar from "@/components/layout/SideBar";
+import {AppLayout} from "@/components/layout/AppLayout";
+import {SideBar} from "@/components/layout/SideBar";
 import {Header, HeaderTitle} from "@/components/layout/Header";
 
-import Body from "@/components/layout/Body";
+import {Body} from "@/components/layout/Body";
 import {MainMenu} from "@/features/MainMenu";
 
 export default function Page() {

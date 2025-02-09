@@ -13,9 +13,9 @@ import {
   MenuTriggerItem
 } from "@/components/ui/menu"
 import {LanguagesIcon, LogOutIcon, MoonIcon, SettingsIcon, SunIcon, UserPlusIcon} from "lucide-react";
-import Profile from "./Profile";
+import { Profile } from "./Profile";
 
-const ProfileMenu = () => {
+export const ProfileMenu = () => {
   const gap = 3;
   const subMenuPosition = {placement: "right-start", gutter: 2};
 
@@ -23,7 +23,6 @@ const ProfileMenu = () => {
   const [mounted, setMounted] = useState(false)
   const {theme, setTheme} = useTheme()
 
-  // useEffect only runs on the client, so now we can safely show the UI
   // to prevent hydration warning
   useEffect(() => {
     setMounted(true)
@@ -93,5 +92,3 @@ const ProfileMenu = () => {
       </MenuRoot>
   );
 };
-
-export default ProfileMenu;

@@ -1,31 +1,49 @@
-import {type ReactNode, useState} from "react";
-import {Flex, FlexProps, IconButton} from "@chakra-ui/react";
+import {type ReactNode} from "react";
+import {Flex, FlexProps} from "@chakra-ui/react";
 import {
   DrawerBackdrop,
   DrawerBody,
   DrawerCloseTrigger,
   DrawerContent,
   DrawerRoot,
-  DrawerTrigger,
 } from "@/components/ui/drawer"
-import {MenuIcon} from "lucide-react";
 import { useMenuContext } from "../providers/menuProvider";
 
 const styles = {
   desktopSidebar: {
-    hideBelow: "lg", // hide below lg breakpoint
-    width: "300px",
+    hideBelow: "md", // hide below lg breakpoint
+    width: "260px",
     height: "100vh",
     flexDirection: "column",
     bg: "bg.subtle",
     color: "fg.muted",
     borderRight: "1px solid",
     borderColor: "border",
+    lg: {
+      width: "280px",
+    },
+    xl: {
+      width: "300px",
+    },
+  },
+  mobileSidebar: {
+    width: "300px",
+    body: {
+      display: "flex",
+      flexDirection: "column",
+      padding: 0,
+      flexGrow: 1,
+      height: "100vh",
+    },
+    closeTrigger:{
+      top: 4,
+      right: 3,
+    }
   }
 };
 
 // Left sidebar – wrapper around menu on the left side
-const SideBar = ({
+export const SideBar = ({
                    children,
                    ...props
                  }: {
@@ -37,21 +55,13 @@ const SideBar = ({
         <Flex as="nav" {...styles.desktopSidebar} {...props}>
           {children}
         </Flex>
-        <DrawerRoot placement="start" open={isOpen}>
-          <DrawerBackdrop/>
-          <DrawerTrigger asChild>
-            <IconButton hideFrom="lg" position="absolute" top={3.5} left={3} variant="ghost" size="md">
-              <MenuIcon/>
-            </IconButton>
-          </DrawerTrigger>
-          <DrawerContent width="300px">
-            <DrawerCloseTrigger onClick={() => setIsOpen(false)}/>
-            <DrawerBody display="flex" flexDirection="column" padding={0} flexGrow={1}
-                        height="100vh"> {children} </DrawerBody>
+        <DrawerRoot placement="start" open={isOpen} onOpenChange={() => setIsOpen(!isOpen)}>
+          <DrawerBackdrop />
+          <DrawerContent {...styles.mobileSidebar}>
+            <DrawerCloseTrigger {...styles.mobileSidebar.closeTrigger} />
+            <DrawerBody {...styles.mobileSidebar.body}>{children}</DrawerBody>
           </DrawerContent>
         </DrawerRoot>
       </>
   )
 };
-
-export default SideBar;

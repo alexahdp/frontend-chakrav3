@@ -35,7 +35,7 @@ interface NavItemProps extends ButtonProps {
   size?: 'sm' | 'md'
 }
 
-const NavItem = ({
+export const NavItem = ({
                    children,
                    href = "",
                    selected = false,
@@ -55,5 +55,3 @@ const NavItem = ({
       {children}
     </Button>
 )
-
-export default NavItem;
